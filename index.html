@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="./assets/images/favicon-32x32.png"
+  >
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <title>Frontend Mentor | Character counter</title>
+</head>
+
+<body>
+  <section class="lightMode">
+    <header>
+      <img
+        src="./assets/images/logo-light-theme.svg"
+        alt="logo-light-theme"
+        class="logo"
+      >
+      <div class="themeWrap">
+        <img
+          class="themeToggle"
+          src="./assets/images/icon-moon.svg"
+          alt="icon-moon"
+        >
+      </div>
+    </header>
+    <p class="title">Analyze your text <br> in real-time.</p>
+    <form action="#">
+      <textarea
+        name="characters"
+        id="characters"
+        placeholder="Start typing here… (or paste your text)"
+        class="text-box"
+      ></textarea>
+      <section class="options">
+        <div class="input-options">
+          <div class="option-item">
+            <input
+              type="checkbox"
+              name="exclude-spaces"
+              id="exclude-spaces"
+            >
+            <label for="exclude-spaces">Exclude Spaces</label>
+          </div>
+          <div class="option-item">
+            <input
+              type="checkbox"
+              name="character-limit"
+              id="character-limit"
+            >
+            <label for="character-limit">Set Character Limit</label>
+          </div>
+        </div>
+        <span>
+          Approx. reading time: <strong>&lt;3minutes</strong></span>
+      </section>
+    </form>
+    <!-- CARDS... -->
+    <section class="metrics">
+      <div class="card1">
+        <h3>278</h3>
+        <p>Total Characters</p>
+      </div>
+      <div class="card2">
+        <h3>39</h3>
+        <p>Word Count</p>
+      </div>
+      <div class="card3">
+        <h3>04</h3>
+        <p>Sentence Count</p>
+      </div>
+    </section>
+    <p class="density-data">Letter Density</p>
+    <!-- <p class="densitydetails-empty">No characters found. Start typing to see letter density.</p> -->
+    <section class="density-details-filled">
+      <div class="density-item">
+        <p class="density-letter">E</p>
+        <div class="total-progress">
+          <div
+            class="covered-progress"
+            style="width: 16%;"
+          ></div>
+        </div>
+        <p class="density-metrics">40 (16.06&cent;)</p>
+      </div>
+      <div class="density-item">
+        <p class="density-letter">I</p>
+        <div class="total-progress">
+          <div
+            class="covered-progress"
+            style="width: 12%;"
+          ></div>
+        </div>
+        <p class="density-metrics">29 (11.65&cent;)</p>
+      </div>
+      <div class="density-item">
+        <p class="density-letter">T</p>
+        <div class="total-progress">
+          <div
+            class="covered-progress"
+            style="width: 11%;"
+          ></div>
+        </div>
+        <p class="density-metrics">28 (11.24&cent;)</p>
+      </div>
+      <div class="density-item">
+        <p class="density-letter">O</p>
+        <div class="total-progress">
+          <div
+            class="covered-progress"
+            style="width: 9%;"
+          ></div>
+        </div>
+        <p class="density-metrics">22 (8.84&cent;)</p>
+      </div>
+      <div class="density-item">
+        <p class="density-letter">N</p>
+        <div class="total-progress">
+          <div
+            class="covered-progress"
+            style="width: 8%;"
+          ></div>
+        </div>
+        <p class="density-metrics">21 (8.43&cent;)</p>
+      </div>
+    </section>
+    <div class="more-characters">
+      <a href="#">
+        <p>See more</p>
+        <img
+          src="./assets/images/chevron-down-small-svgrepo-com.svg"
+          alt="chevron-down"
+          class="chevron-down"
+        >
+      </a>
+    </div>
+  </section>
+</body>
+
+</html>
