@@ -1,3 +1,50 @@
+:root {
+	/* colors */
+	--neutral-0: #ffffff;
+	--neutral-100: #f2f2f7;
+	--neutral-200: #e4e4ef;
+	--neutral-600: #404254;
+	--neutral-700: #2a2b37;
+	--neutral-800: #21222c;
+	--neutral-900: #12131a;
+
+	--purple-400: #d3a0fa;
+	--purple-500: #c27cf8;
+
+	--orange-500: #fe8159;
+	--orange-800: #da3701;
+
+	--yellow-500: #ff9f00;
+
+	/* spacing */
+	--spacing-0: 0px;
+	--spacing-025: 2px;
+	--spacing-050: 4px;
+	--spacing-075: 6px;
+	--spacing-100: 8px;
+	--spacing-150: 12px;
+	--spacing-200: 16px;
+	--spacing-250: 20px;
+	--spacing-300: 24px;
+	--spacing-400: 32px;
+	--spacing-500: 40px;
+	--spacing-600: 48px;
+	--spacing-800: 64px;
+	--spacing-1000: 80px;
+
+	/* corner radius */
+	--radius-0: 0px;
+	--radius-4: 4px;
+	--radius-6: 6px;
+	--radius-8: 8px;
+	--radius-10: 10px;
+	--radius-12: 12px;
+	--radius-16: 16px;
+	--radius-20: 20px;
+	--radius-24: 24px;
+	--radius-full: 999px;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -37,15 +84,15 @@ body {
 	padding: 0;
 	margin: 0 auto;
 	justify-content: center;
-	margin-bottom: 64px;
+	margin-bottom: var(--spacing-800);
 }
 
 header {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: spacing-between;
 	height: 40px;
-	margin-block: 32px;
+	margin-block: var(--spacing-400);
 }
 
 .logo {
@@ -54,8 +101,8 @@ header {
 }
 
 .themeWrap {
-	background-color: #f2f2f7;
-	border-radius: 8px;
+	background-color: var(--neutral-100);
+	border-radius: var(--radius-8);
 	padding: 11px;
 	display: flex;
 	align-items: center;
@@ -72,46 +119,44 @@ header {
 	font-size: 64px;
 	letter-spacing: -1px;
 	line-height: 100%;
-	margin-bottom: 48px;
+	margin-bottom: var(--spacing-600);
 	font-weight: 700;
 }
 
 form {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-	/* background-color: #c3c3c3; */
+	gap: var(--spacing-200);
 }
 
 .text-box {
 	display: block;
-	/* width: 990px; */
 	width: 100%;
 	height: 200px;
-	border-radius: 12px;
-	padding-inline: 20px;
-	padding-top: 20px;
+	border-radius: var(--radius-12);
+	padding-inline: var(--spacing-250);
+	padding-top: var(--spacing-250);
 	font-size: 20px;
 	letter-spacing: -0.6px;
-	background-color: #f2f2f7;
-	border: #e4e4ef solid;
+	background-color: var(--neutral-100);
+	border: var(--neutral-200) solid;
 	font-family: "DM Sans", sans-serif;
 }
 
 .text-box:focus {
-	border-color: #c27cf8;
+	border-color: var(--purple-500);
 	outline: none;
 }
 
 .options {
 	display: flex;
-	justify-content: space-between;
+	justify-content: spacing-between;
 	width: 100%;
 }
 
 .input-options {
 	display: flex;
-	gap: 24px;
+	gap: var(--spacing-300);
 }
 
 .input-options label {
@@ -125,10 +170,10 @@ form {
 
 .metrics {
 	display: flex;
-	justify-content: space-between;
-	gap: 16px;
-	margin-top: 48px;
-	margin-bottom: 24px;
+	justify-content: spacing-between;
+	gap: var(--spacing-200);
+	margin-top: var(--spacing-600);
+	margin-bottom: var(--spacing-300);
 }
 
 .card1,
@@ -139,9 +184,9 @@ form {
 	gap: 5px;
 	display: flex;
 	flex-direction: column;
-	border-radius: 12px;
+	border-radius: var(--radius-12);
 	padding-top: 26.5px;
-	padding-inline: 16px;
+	padding-inline: var(--spacing-200);
 }
 
 .card1 h3,
@@ -161,21 +206,21 @@ form {
 }
 
 .card1 {
-	background-color: #d3a0fa;
+	background-color: var(--purple-400);
 	background-image: url("./assets/images/pattern-character-count.svg");
 	background-position: center right;
 	background-repeat: no-repeat;
 }
 
 .card2 {
-	background-color: #ff9f00;
+	background-color: var(--yellow-500);
 	background-image: url("./assets/images/pattern-word-count.svg");
 	background-position: center right;
 	background-repeat: no-repeat;
 }
 
 .card3 {
-	background-color: #fe8159;
+	background-color: var(--orange-500);
 	background-image: url("./assets/images/pattern-sentence-count.svg");
 	background-position: center right;
 	background-repeat: no-repeat;
@@ -186,7 +231,7 @@ form {
 	font-weight: 600;
 	line-height: 130%;
 	letter-spacing: -1px;
-	margin-bottom: 20px;
+	margin-bottom: var(--spacing-250);
 }
 
 .density-details-empty {
@@ -197,17 +242,17 @@ form {
 
 .density-item {
 	display: flex;
-	justify-content: space-between;
+	justify-content: spacing-between;
 	gap: 14px;
 	align-items: center;
-	margin-bottom: 16px;
+	margin-bottom: var(--spacing-200);
 	width: 100%;
 }
 
 .density-letter {
 	font-size: 16px;
 	height: 21px;
-	width: 16px;
+	width: var(--spacing-200);
 	/* line-height: 130%; */
 	letter-spacing: -0.6px;
 }
@@ -224,16 +269,16 @@ form {
 .total-progress {
 	width: auto;
 	flex-grow: 1;
-	background-color: #f2f2f7;
-	height: 12px;
-	border-radius: 999px;
+	background-color: var(--neutral-100);
+	height: var(--spacing-150);
+	border-radius: var(--radius-full);
 	overflow: hidden;
 }
 
 .covered-progress {
-	background-color: #d3a0fa;
+	background-color: var(--purple-400);
 	height: 100%;
-	border-radius: 999px;
+	border-radius: var(--radius-full);
 }
 
 .more-characters {
@@ -249,23 +294,23 @@ form {
 
 .more-characters a,
 .more-characters a:visited {
-	color: #12131a;
+	color: var(--neutral-900);
 	display: flex;
-	gap: 8px;
+	gap: var(--spacing-100);
 }
 
 .chevron-down {
-	width: 24px;
+	width: var(--spacing-300);
 }
 
 /* TABLET VIEW */
 @media (max-width: 768px) {
 	.lightMode {
 		width: 100%;
-		padding-inline: 32px;
+		padding-inline: var(--spacing-400);
 		margin: 0 auto;
 		justify-content: center;
-		margin-bottom: 64px;
+		margin-bottom: var(--spacing-800);
 	}
 
 	.card1,
@@ -273,7 +318,7 @@ form {
 	.card3 {
 		width: 224px;
 		height: 150px;
-		padding: 16px;
+		padding: var(--spacing-200);
 	}
 
 	.total-progress {
@@ -283,13 +328,13 @@ form {
 }
 
 /* MOBILE VIEW */
-@media (max-width: 375px) {
+@media (max-width: 415px) {
 	.lightMode {
 		width: 100%;
-		padding-inline: 16px;
+		padding-inline: var(--spacing-200);
 		margin: 0 auto;
 		justify-content: center;
-		margin-bottom: 32px;
+		margin-bottom: var(--spacing-400);
 	}
 
 	.logo {
@@ -298,12 +343,12 @@ form {
 	}
 
 	.themeWrap {
-		padding: 6px;
+		padding: var(--spacing-075);
 	}
 
 	.themeToggle {
-		width: 20px;
-		height: 20px;
+		width: var(--spacing-250);
+		height: var(--spacing-250);
 	}
 
 	.title {
@@ -313,17 +358,17 @@ form {
 
 	.options {
 		flex-direction: column;
-		gap: 12px;
+		gap: var(--spacing-150);
 	}
 
 	.input-options {
 		flex-direction: column;
-		gap: 12px;
+		gap: var(--spacing-150);
 	}
 
 	.metrics {
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: spacing-between;
 	}
 
 	.card1,
