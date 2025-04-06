@@ -51,13 +51,6 @@
 	box-sizing: border-box;
 }
 
-body {
-	background-image: url(./assets/images/bg-light-theme.png);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
 @font-face {
 	font-family: "DM Sans";
 	src: url("./assets/fonts/DM_Sans/static/DMSans-Regular.ttf");
@@ -76,26 +69,36 @@ body {
 	font-weight: 700;
 }
 
-.lightMode {
+body {
 	font-family: "DM Sans", sans-serif;
 	font-weight: 100;
-	max-width: 990px;
 	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(./assets/images/bg-light-theme.png);
+	color: var(--neutral-900);
+	max-width: 990px;
 	padding: 0;
 	margin: 0 auto;
 	justify-content: center;
-	margin-bottom: var(--spacing-800);
+	padding-bottom: var(--spacing-800);
+}
+
+.darkMode {
+	background-image: url(./assets/images/bg-dark-theme.png);
+	color: var(--neutral-200);
 }
 
 header {
 	display: flex;
 	align-items: center;
-	justify-content: spacing-between;
-	height: 40px;
-	margin-block: var(--spacing-400);
+	justify-content: space-between;
+	padding-top: var(--spacing-400);
+	margin-bottom: var(--spacing-400);
 }
 
-.logo {
+#logo {
 	height: inherit;
 	width: auto;
 }
@@ -107,6 +110,20 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+body.darkMode .themeWrap {
+	background-color: var(--neutral-700);
+}
+
+.themeWrap:hover {
+	background-color: var(--neutral-200);
+	cursor: pointer;
+	/* box-shadow: #12131a; */
+}
+
+body.darkMode .themeWrap:hover {
+	background-color: var(--neutral-600);
 }
 
 .themeToggle {
@@ -121,6 +138,10 @@ header {
 	line-height: 100%;
 	margin-bottom: var(--spacing-600);
 	font-weight: 700;
+}
+
+body.darkMode .title {
+	color: var(--neutral-100);
 }
 
 form {
@@ -143,6 +164,12 @@ form {
 	font-family: "DM Sans", sans-serif;
 }
 
+body.darkMode .text-box {
+	background-color: var(--neutral-800);
+	border-color: var(--neutral-700);
+	color: var(--neutral-200);
+}
+
 .text-box:focus {
 	border-color: var(--purple-500);
 	outline: none;
@@ -150,7 +177,7 @@ form {
 
 .options {
 	display: flex;
-	justify-content: spacing-between;
+	justify-content: space-between;
 	width: 100%;
 }
 
@@ -170,7 +197,7 @@ form {
 
 .metrics {
 	display: flex;
-	justify-content: spacing-between;
+	justify-content: space-between;
 	gap: var(--spacing-200);
 	margin-top: var(--spacing-600);
 	margin-bottom: var(--spacing-300);
@@ -195,6 +222,7 @@ form {
 	font-size: 64px;
 	line-height: 100%;
 	letter-spacing: -1px;
+	color: var(--neutral-900);
 }
 
 .card1 p,
@@ -203,6 +231,7 @@ form {
 	font-size: 20px;
 	line-height: 140%;
 	letter-spacing: -0.6px;
+	color: var(--neutral-900);
 }
 
 .card1 {
@@ -242,7 +271,7 @@ form {
 
 .density-item {
 	display: flex;
-	justify-content: spacing-between;
+	justify-content: space-between;
 	gap: 14px;
 	align-items: center;
 	margin-bottom: var(--spacing-200);
@@ -275,6 +304,10 @@ form {
 	overflow: hidden;
 }
 
+body.darkMode .total-progress {
+	background-color: var(--neutral-800);
+}
+
 .covered-progress {
 	background-color: var(--purple-400);
 	height: 100%;
@@ -292,15 +325,23 @@ form {
 	letter-spacing: -0.6px;
 }
 
-.more-characters a,
-.more-characters a:visited {
-	color: var(--neutral-900);
+.more-characters a {
+	/* color: var(--neutral-900); */
 	display: flex;
 	gap: var(--spacing-100);
 }
 
+.more-characters a:visited {
+	color: var(--neutral-900);
+}
+
+body.darkMode .more-characters a:visited {
+	color: var(--neutral-0);
+}
+
 .chevron-down {
 	width: var(--spacing-300);
+	color: red;
 }
 
 /* TABLET VIEW */
@@ -368,7 +409,7 @@ form {
 
 	.metrics {
 		flex-direction: column;
-		justify-content: spacing-between;
+		justify-content: space-between;
 	}
 
 	.card1,
