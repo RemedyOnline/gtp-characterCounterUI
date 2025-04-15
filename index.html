@@ -41,8 +41,8 @@
   <p class="title">Analyze your text <br> in real-time.</p>
   <form action="#">
     <textarea
-      name="characters"
-      id="characters"
+      name="text-box"
+      id="text-box"
       placeholder="Start typing here… (or paste your text)"
       class="text-box"
     ></textarea>
@@ -55,6 +55,7 @@
             id="exclude-spaces"
           >
           <label for="exclude-spaces">Exclude Spaces</label>
+          <span class="checkmark"></span>
         </div>
         <div class="option-item">
           <input
@@ -63,30 +64,35 @@
             id="character-limit"
           >
           <label for="character-limit">Set Character Limit</label>
+          <input
+            type="number"
+            name="set-limit"
+            id="set-limit"
+          >
         </div>
       </div>
       <span>
-        Approx. reading time: <strong>&lt;3minutes</strong></span>
+        Approx. reading time: <strong>&lt;<span id="read-time">3minutes</span></strong></span>
     </section>
   </form>
   <!-- CARDS... -->
   <section class="metrics">
-    <div class="card1">
+    <div id="char-count">
       <h3>278</h3>
       <p>Total Characters</p>
     </div>
-    <div class="card2">
+    <div id="word-count">
       <h3>39</h3>
       <p>Word Count</p>
     </div>
-    <div class="card3">
+    <div id="sentence-count">
       <h3>04</h3>
       <p>Sentence Count</p>
     </div>
   </section>
   <p class="density-data">Letter Density</p>
   <!-- <p class="densitydetails-empty">No characters found. Start typing to see letter density.</p> -->
-  <section class="density-details-filled">
+  <section id="density-details-filled">
     <div class="density-item">
       <p class="density-letter">E</p>
       <div class="total-progress">
@@ -138,7 +144,7 @@
       <p class="density-metrics">21 (8.43%)</p>
     </div>
   </section>
-  <div class="more-characters">
+  <div class="view-more">
     <a href="#">
       <p>See more</p>
       <img

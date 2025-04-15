@@ -203,9 +203,9 @@ body.darkMode .text-box {
 	margin-bottom: var(--spacing-300);
 }
 
-.card1,
-.card2,
-.card3 {
+#char-count,
+#word-count,
+#sentence-count {
 	width: 319.33px;
 	height: 150px;
 	gap: 5px;
@@ -216,39 +216,39 @@ body.darkMode .text-box {
 	padding-inline: var(--spacing-200);
 }
 
-.card1 h3,
-.card2 h3,
-.card3 h3 {
+#char-count h3,
+#word-count h3,
+#sentence-count h3 {
 	font-size: 64px;
 	line-height: 100%;
 	letter-spacing: -1px;
 	color: var(--neutral-900);
 }
 
-.card1 p,
-.card2 p,
-.card3 p {
+#char-count p,
+#word-count p,
+#sentence-count p {
 	font-size: 20px;
 	line-height: 140%;
 	letter-spacing: -0.6px;
 	color: var(--neutral-900);
 }
 
-.card1 {
+#char-count {
 	background-color: var(--purple-400);
 	background-image: url("./assets/images/pattern-character-count.svg");
 	background-position: center right;
 	background-repeat: no-repeat;
 }
 
-.card2 {
+#word-count {
 	background-color: var(--yellow-500);
 	background-image: url("./assets/images/pattern-word-count.svg");
 	background-position: center right;
 	background-repeat: no-repeat;
 }
 
-.card3 {
+#sentence-count {
 	background-color: var(--orange-500);
 	background-image: url("./assets/images/pattern-sentence-count.svg");
 	background-position: center right;
@@ -354,9 +354,9 @@ body.darkMode .more-characters a:visited {
 		margin-bottom: var(--spacing-800);
 	}
 
-	.card1,
-	.card2,
-	.card3 {
+	#char-count,
+	#word-count,
+	#sentence-count {
 		width: 224px;
 		height: 150px;
 		padding: var(--spacing-200);
@@ -412,9 +412,9 @@ body.darkMode .more-characters a:visited {
 		justify-content: space-between;
 	}
 
-	.card1,
-	.card2,
-	.card3 {
+	#char-count,
+	#word-count,
+	#sentence-count {
 		width: auto;
 		height: 130px;
 		gap: 5px;
@@ -422,17 +422,17 @@ body.darkMode .more-characters a:visited {
 		flex-direction: column;
 	}
 
-	.card1 h3,
-	.card2 h3,
-	.card3 h3 {
+	#char-count h3,
+	#word-count h3,
+	#sentence-count h3 {
 		font-size: 40px;
 		line-height: 100%;
 		letter-spacing: -1px;
 	}
 
-	.card1 p,
-	.card2 p,
-	.card3 p {
+	#char-count p,
+	#word-count p,
+	#sentence-count p {
 		font-size: 20px;
 		line-height: 140%;
 		letter-spacing: -0.6px;
