@@ -119,7 +119,6 @@ body.darkMode .themeWrap {
 .themeWrap:hover {
 	background-color: var(--neutral-200);
 	cursor: pointer;
-	/* box-shadow: #12131a; */
 }
 
 body.darkMode .themeWrap:hover {
@@ -147,10 +146,10 @@ body.darkMode .title {
 form {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-200);
+	gap: var(--spacing-150);
 }
 
-.text-box {
+.text-input {
 	display: block;
 	width: 100%;
 	height: 200px;
@@ -164,15 +163,23 @@ form {
 	font-family: "DM Sans", sans-serif;
 }
 
-body.darkMode .text-box {
+body.darkMode .text-input {
 	background-color: var(--neutral-800);
 	border-color: var(--neutral-700);
 	color: var(--neutral-200);
 }
 
-.text-box:focus {
+.text-input:focus {
 	border-color: var(--purple-500);
 	outline: none;
+}
+
+#limit-alert {
+	display: flex;
+	gap: 8px;
+	color: var(--orange-800);
+	margin-bottom: 4px;
+	align-items: center;
 }
 
 .options {
@@ -195,6 +202,29 @@ body.darkMode .text-box {
 	gap: 10px;
 }
 
+#limit-input-container {
+	display: none;
+}
+
+#limit-input {
+	max-height: 29px;
+	max-width: 48px;
+	border-radius: 4px;
+	padding-inline: 12px;
+	border: var(--neutral-600) 1px solid;
+	/* font-size: 16px; */
+	outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+#reading-time {
+	font-weight: 900;
+}
+
 .metrics {
 	display: flex;
 	justify-content: space-between;
@@ -203,9 +233,9 @@ body.darkMode .text-box {
 	margin-bottom: var(--spacing-300);
 }
 
-#char-count,
-#word-count,
-#sentence-count {
+#char-count-card,
+#word-count-card,
+#sentence-count-card {
 	width: 319.33px;
 	height: 150px;
 	gap: 5px;
@@ -216,39 +246,39 @@ body.darkMode .text-box {
 	padding-inline: var(--spacing-200);
 }
 
-#char-count h3,
-#word-count h3,
-#sentence-count h3 {
+#char-count-card h3,
+#word-count-card h3,
+#sentence-count-card h3 {
 	font-size: 64px;
 	line-height: 100%;
 	letter-spacing: -1px;
 	color: var(--neutral-900);
 }
 
-#char-count p,
-#word-count p,
-#sentence-count p {
+#char-count-card p,
+#word-count-card p,
+#sentence-count-card p {
 	font-size: 20px;
 	line-height: 140%;
 	letter-spacing: -0.6px;
 	color: var(--neutral-900);
 }
 
-#char-count {
+#char-count-card {
 	background-color: var(--purple-400);
 	background-image: url("./assets/images/pattern-character-count.svg");
 	background-position: center right;
 	background-repeat: no-repeat;
 }
 
-#word-count {
+#word-count-card {
 	background-color: var(--yellow-500);
 	background-image: url("./assets/images/pattern-word-count.svg");
 	background-position: center right;
 	background-repeat: no-repeat;
 }
 
-#sentence-count {
+#sentence-count-card {
 	background-color: var(--orange-500);
 	background-image: url("./assets/images/pattern-sentence-count.svg");
 	background-position: center right;
@@ -263,7 +293,10 @@ body.darkMode .text-box {
 	margin-bottom: var(--spacing-250);
 }
 
-.density-details-empty {
+#density-details-filled {
+	display: none;
+}
+#density-details-empty {
 	font-size: 16px;
 	line-height: 130%;
 	letter-spacing: -0.6px;
@@ -282,14 +315,12 @@ body.darkMode .text-box {
 	font-size: 16px;
 	height: 21px;
 	width: var(--spacing-200);
-	/* line-height: 130%; */
 	letter-spacing: -0.6px;
 }
 
 .density-metrics {
 	font-size: 16px;
 	height: 21px;
-	/* line-height: 130%; */
 	letter-spacing: -0.6px;
 	width: 87px;
 	text-align: right;
@@ -326,7 +357,6 @@ body.darkMode .total-progress {
 }
 
 .more-characters a {
-	/* color: var(--neutral-900); */
 	display: flex;
 	gap: var(--spacing-100);
 }
@@ -344,8 +374,30 @@ body.darkMode .more-characters a:visited {
 	color: red;
 }
 
+#view-more-button-block {
+	display: none;
+}
+
+#view-more-button {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	width: fit-content;
+	background: none;
+	border: none;
+	outline: none;
+}
+
+#view-more-button p {
+	font-size: 16px;
+}
+
+#view-more-button:hover {
+	text-decoration: underline;
+}
+
 /* TABLET VIEW */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
 	.lightMode {
 		width: 100%;
 		padding-inline: var(--spacing-400);
@@ -354,12 +406,17 @@ body.darkMode .more-characters a:visited {
 		margin-bottom: var(--spacing-800);
 	}
 
-	#char-count,
-	#word-count,
-	#sentence-count {
+	#char-count-card,
+	#word-count-card,
+	#sentence-count-card {
 		width: 224px;
 		height: 150px;
 		padding: var(--spacing-200);
+	}
+
+	.options {
+		flex-direction: column;
+		gap: var(--spacing-150);
 	}
 
 	.total-progress {
@@ -412,9 +469,9 @@ body.darkMode .more-characters a:visited {
 		justify-content: space-between;
 	}
 
-	#char-count,
-	#word-count,
-	#sentence-count {
+	#char-count-card,
+	#word-count-card,
+	#sentence-count-card {
 		width: auto;
 		height: 130px;
 		gap: 5px;
@@ -422,17 +479,17 @@ body.darkMode .more-characters a:visited {
 		flex-direction: column;
 	}
 
-	#char-count h3,
-	#word-count h3,
-	#sentence-count h3 {
+	#char-count-card h3,
+	#word-count-card h3,
+	#sentence-count-card h3 {
 		font-size: 40px;
 		line-height: 100%;
 		letter-spacing: -1px;
 	}
 
-	#char-count p,
-	#word-count p,
-	#sentence-count p {
+	#char-count-card p,
+	#word-count-card p,
+	#sentence-count-card p {
 		font-size: 20px;
 		line-height: 140%;
 		letter-spacing: -0.6px;

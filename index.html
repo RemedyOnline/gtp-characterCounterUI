@@ -22,7 +22,6 @@
 </head>
 
 <body class="lightMode">
-  <!-- <section class="lightMode"> -->
   <header>
     <img
       src="./assets/images/logo-light-theme.svg"
@@ -38,14 +37,17 @@
       >
     </div>
   </header>
-  <p class="title">Analyze your text <br> in real-time.</p>
+  <h1 class="title">Analyze your text <br> in real-time.</h1>
   <form action="#">
     <textarea
-      name="text-box"
-      id="text-box"
+      name="text-input"
+      id="text-input"
       placeholder="Start typing here… (or paste your text)"
-      class="text-box"
+      class="text-input"
     ></textarea>
+    <div id="limit-alert">
+
+    </div>
     <section class="options">
       <div class="input-options">
         <div class="option-item">
@@ -60,101 +62,53 @@
         <div class="option-item">
           <input
             type="checkbox"
-            name="character-limit"
-            id="character-limit"
+            name="limit-checkbox"
+            id="limit-checkbox"
           >
-          <label for="character-limit">Set Character Limit</label>
-          <input
-            type="number"
-            name="set-limit"
-            id="set-limit"
-          >
+          <label for="limit-checkbox">Set Character Limit</label>
+          <div id="limit-input-container">
+            <input
+              type="number"
+              name="limit-input"
+              id="limit-input"
+            >
+          </div>
         </div>
       </div>
       <span>
-        Approx. reading time: <strong>&lt;<span id="read-time">3minutes</span></strong></span>
+        Approx. reading time: <span id="reading-time">0 minute</span>
+      </span>
     </section>
   </form>
   <!-- CARDS... -->
   <section class="metrics">
-    <div id="char-count">
-      <h3>278</h3>
+    <div id="char-count-card">
+      <h3 id="char-count-value">00</h3>
       <p>Total Characters</p>
     </div>
-    <div id="word-count">
-      <h3>39</h3>
+    <div id="word-count-card">
+      <h3 id="word-count-value">00</h3>
       <p>Word Count</p>
     </div>
-    <div id="sentence-count">
-      <h3>04</h3>
+    <div id="sentence-count-card">
+      <h3 id="sentence-count-value">00</h3>
       <p>Sentence Count</p>
     </div>
   </section>
-  <p class="density-data">Letter Density</p>
-  <!-- <p class="densitydetails-empty">No characters found. Start typing to see letter density.</p> -->
+  <h3 class="density-data">Letter Density</h3>
+  <p id="density-details-empty">No characters found. Start typing to see letter density.</p>
   <section id="density-details-filled">
-    <div class="density-item">
-      <p class="density-letter">E</p>
-      <div class="total-progress">
-        <div
-          class="covered-progress"
-          style="width: 16%;"
-        ></div>
-      </div>
-      <p class="density-metrics">40 (16.06%)</p>
-    </div>
-    <div class="density-item">
-      <p class="density-letter">I</p>
-      <div class="total-progress">
-        <div
-          class="covered-progress"
-          style="width: 12%;"
-        ></div>
-      </div>
-      <p class="density-metrics">29 (11.65%)</p>
-    </div>
-    <div class="density-item">
-      <p class="density-letter">T</p>
-      <div class="total-progress">
-        <div
-          class="covered-progress"
-          style="width: 11%;"
-        ></div>
-      </div>
-      <p class="density-metrics">28 (11.24%)</p>
-    </div>
-    <div class="density-item">
-      <p class="density-letter">O</p>
-      <div class="total-progress">
-        <div
-          class="covered-progress"
-          style="width: 9%;"
-        ></div>
-      </div>
-      <p class="density-metrics">22 (8.84%)</p>
-    </div>
-    <div class="density-item">
-      <p class="density-letter">N</p>
-      <div class="total-progress">
-        <div
-          class="covered-progress"
-          style="width: 8%;"
-        ></div>
-      </div>
-      <p class="density-metrics">21 (8.43%)</p>
-    </div>
   </section>
-  <div class="view-more">
-    <a href="#">
+  <div id="view-more-button-block">
+    <button id="view-more-button">
       <p>See more</p>
       <img
         src="./assets/images/chevron-down-small-svgrepo-com.svg"
         alt="chevron-down"
         class="chevron-down"
       >
-    </a>
+    </button>
   </div>
-  <!-- </section> -->
   <script src="script.js"></script>
 </body>
 
