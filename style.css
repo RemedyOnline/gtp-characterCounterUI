@@ -378,10 +378,6 @@ body.darkMode .more-characters a:visited {
 	display: none;
 }
 
-.title {
-	color: var(--neutral-100);
-}
-
 #view-more-button {
 	display: flex;
 	align-items: center;
