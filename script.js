@@ -74,8 +74,8 @@ textLimitInput.addEventListener("input", () => {
 
 	// preventing the limit input from triggering as soon as user starts entering a number...
 	limitInputTimer = setTimeout(() => {
-		characterChanges;
-	}, 1000);
+		characterChanges();
+	}, 500);
 });
 
 // toggling the See More button to See Less on Click
@@ -102,33 +102,35 @@ function characterChanges() {
 			if (textCharacter.length >= charLimitValue) {
 				textCharacter = textCharacter.substring(0, charLimitValue);
 				textInput.value = textCharacter;
-				textInput.style.boxShadow = "0 0 10px #da3701";
-				textInput.style.borderColor = "none";
+				textInput.classList.add("text-limit-reached");
 				limitMessage.innerHTML = `<img src="./assets/images/icon-info.svg" alt="icon-info">
 				<p>Limit reached! Your text exceeds ${charLimitValue} characters</p>`;
+			} else {
+				textInput.classList.remove("text-limit-reached");
+				limitMessage.innerHTML = "";
 			}
 		}
 	}
 
-	// toggling the limit input box only upon checking the limit box
+	// toggling the limit input box only upon checking the limit checkbox...
 	if (limitCheckbox.checked) {
 		limitInputContainer.style.display = "block";
 	} else {
 		limitInputContainer.style.display = "none";
 	}
 
-	// charactor count...
+	// charactor count calculation...
 	const charCount = interpretedText.length;
 	const paddedCharCount = String(charCount).padStart(2, "0");
 
-	// word count...
+	// word count calculation...
 	const wordCount = textCharacter
 		.trim()
 		.split(/\s+/)
 		.filter((word) => word !== "").length;
 	const paddedWordCount = String(wordCount).padStart(2, "0");
 
-	// sentence count...
+	// sentence count calculation...
 	const sentenceCount = textCharacter
 		.split(/[.!?]+/)
 		.filter((sentence) => sentence.trim() !== "").length;

@@ -174,6 +174,11 @@ body.darkMode .text-input {
 	outline: none;
 }
 
+.text-limit-reached {
+	border: 1px solid #da3701 !important;
+	box-shadow: 0 0 10px #da3701;
+}
+
 #limit-alert {
 	display: flex;
 	gap: 8px;
