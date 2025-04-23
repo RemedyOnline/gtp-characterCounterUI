@@ -34,26 +34,24 @@ toggleBtn.addEventListener("click", themeSwitch);
 
 function themeSwitch() {
 	document.body.classList.toggle("darkMode");
+	const isDarkMode = document.body.classList.contains("darkMode");
 
 	// toggling the logo...
-	if (document.body.classList.contains("darkMode")) {
+	if (isDarkMode) {
 		logo.src = "./assets/images/logo-dark-theme.svg";
 	} else {
 		logo.src = "./assets/images/logo-light-theme.svg";
 	}
 
 	// toggling the icon in the theme button...
-	if (document.body.classList.contains("darkMode")) {
+	if (isDarkMode) {
 		themeToggle.src = "./assets/images/icon-sun.svg";
 	} else {
 		themeToggle.src = "./assets/images/icon-moon.svg";
 	}
 
 	// saving the current theme to local storage...
-	localStorage.setItem(
-		"theme",
-		document.body.classList.contains("darkMode") ? "dark" : "light"
-	);
+	localStorage.setItem("theme", isDarkMode ? "dark" : "light");
 }
 
 const savedTheme = localStorage.getItem("theme");

@@ -1,0 +1,24 @@
+{
+	"name": "starter-code",
+	"version": "1.0.0",
+	"description": "",
+	"main": "script.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/RemedyOnline/gtp-characterCounterUI.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/RemedyOnline/gtp-characterCounterUI/issues"
+	},
+	"homepage": "https://github.com/RemedyOnline/gtp-characterCounterUI#readme",
+	"devDependencies": {
+		"jest": "^29.7.0"
+	}
+}
