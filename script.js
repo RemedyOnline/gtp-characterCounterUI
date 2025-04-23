@@ -30,7 +30,9 @@ const seeMoreButton = document.getElementById("view-more-button");
 let isExpanded = false;
 
 // creating lightMode and darkMode functionality...
-toggleBtn.addEventListener("click", () => {
+toggleBtn.addEventListener("click", themeSwitch);
+
+function themeSwitch() {
 	document.body.classList.toggle("darkMode");
 
 	// toggling the logo...
@@ -52,9 +54,8 @@ toggleBtn.addEventListener("click", () => {
 		"theme",
 		document.body.classList.contains("darkMode") ? "dark" : "light"
 	);
-});
+}
 
-// creating a variable to track the saved theme from local storage...
 const savedTheme = localStorage.getItem("theme");
 
 // toggling the theme of the website based on the saved theme state on local storage if any exist already...

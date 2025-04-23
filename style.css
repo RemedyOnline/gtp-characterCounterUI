@@ -175,7 +175,7 @@ body.darkMode .text-input {
 }
 
 .text-limit-reached {
-	border: 1px solid #da3701 !important;
+	border: 1px solid #da3701a8 !important;
 	box-shadow: 0 0 10px #da3701;
 }
 
@@ -204,6 +204,7 @@ body.darkMode .text-input {
 
 .option-item {
 	display: flex;
+	align-items: center;
 	gap: 10px;
 }
 
@@ -211,14 +212,23 @@ body.darkMode .text-input {
 	display: none;
 }
 
+#limit-text {
+	background-color: inherit;
+}
+
 #limit-input {
-	max-height: 29px;
+	height: 24px;
 	max-width: 48px;
 	border-radius: 4px;
 	padding-inline: 12px;
-	border: var(--neutral-600) 1px solid;
+	border: var(--neutral-200) 2px solid;
 	/* font-size: 16px; */
 	outline: none;
+}
+body.darkMode #limit-input {
+	background-color: var(--neutral-800);
+	color: var(--neutral-200);
+	border-color: var(--neutral-700);
 }
 
 input[type="number"]::-webkit-inner-spin-button,
