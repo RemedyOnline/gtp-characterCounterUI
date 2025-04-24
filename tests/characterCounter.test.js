@@ -8,17 +8,17 @@ const {
 } = require("../characterCounter.js");
 
 // textString with spaces included...
-describe("unit test cases for character count functionality", () => {
+describe("Unit test cases for character count functionality", () => {
 	// best case: textString in the input box...
 	test("counts all characters including spaces", () => {
-		let myString = countCharacters("Hello world");
+		let myString = countCharacters("I love JEST");
 		expect(myString).toBe(11);
 	});
 
 	// textString with spaces excluded...
 	test("counts characters excluding spaces", () => {
-		const myString = countCharacters("Hello world", true);
-		expect(myString).toBe(10);
+		const myString = countCharacters("I love JEST", true);
+		expect(myString).toBe(9);
 	});
 
 	// handles empty textStrings
@@ -28,19 +28,19 @@ describe("unit test cases for character count functionality", () => {
 	});
 
 	// textString with only spaces
-	test("returns 0 if all characters are spaces and excludeSpaces is true", () => {
+	test("returns 0 if all characters are blank spaces, and excludeSpaces is true", () => {
 		const result = countCharacters("     ", true);
 		expect(result).toBe(0);
 	});
 
 	test("handles special characters", () => {
-		expect(countCharacters("hi! @#$")).toBe(7);
+		expect(countCharacters("Bye! @#$")).toBe(8);
 	});
 });
 
-describe("unit test cases for word count functionality", () => {
+describe("Unit test cases for word count functionality", () => {
 	// textString with a normal sentence...
-	test("counts words in a regular sentence", () => {
+	test("counts words in a sentence", () => {
 		expect(countWords("Hello world")).toBe(2);
 	});
 
@@ -127,5 +127,98 @@ describe("unit test cases for word count functionality", () => {
 
 	test("returns all if no limit provided", () => {
 		expect(getSortedFrequencies(freqObj)).toHaveLength(3);
+	});
+});
+
+// ---------------- DOM UPDATES ----------------
+/**
+ * @jest-environment jsdom
+ */
+
+const { fireEvent } = require("@testing-library/dom");
+
+// Simulate your DOM update function
+// function handleInput(text) {
+function characterChanges(text) {
+	document.getElementById("text-input").value = text;
+
+	const charCount = countCharacters(text);
+	const wordCount = countWords(text);
+	const sentenceCount = countSentences(text);
+	const reading = estimatedReadingTime(wordCount);
+
+	document.getElementById(
+		"char-count-value"
+	).textContent = `Characters: ${charCount}`;
+	document.getElementById(
+		"word-count-value"
+	).textContent = `Words: ${wordCount}`;
+	document.getElementById(
+		"sentence-count-value"
+	).textContent = `Sentences: ${sentenceCount}`;
+	document.getElementById(
+		"reading-time"
+	).textContent = `Estimated reading time: ${reading}`;
+
+	const limitMessage = document.getElementById("limit-alert");
+	if (charCount >= 500 && charCount < 600) {
+		limitMessage.textContent = "Warning: You're nearing the character limit.";
+	} else if (charCount >= 600) {
+		limitMessage.textContent = "Character limit exceeded!";
+	} else {
+		limitMessage.textContent = "";
+	}
+}
+describe("DOM Update Simulation...", () => {
+	beforeEach(() => {
+		document.body.innerHTML = `
+    <textarea id="text-input"></textarea>
+    <h3 id="char-count-value"></h3>
+    <h3 id="word-count-value"></h3>
+    <h3 id="sentence-count-value"></h3>
+    <span id="reading-time"></span>
+    <div id="limit-alert"></div>
+  `;
+	});
+
+	test("updates all counters correctly", () => {
+		const sampleText = "Hello world. This is a test!";
+		characterChanges(sampleText);
+
+		expect(document.getElementById("char-count-value").textContent).toBe(
+			"Characters: 28"
+		);
+		expect(document.getElementById("word-count-value").textContent).toBe(
+			"Words: 6"
+		);
+		expect(document.getElementById("sentence-count-value").textContent).toBe(
+			"Sentences: 2"
+		);
+		expect(document.getElementById("reading-time").textContent).toBe(
+			"Estimated reading time: < 1 minute"
+		);
+	});
+
+	test("shows warning when character count is 500+", () => {
+		const longText = "a".repeat(501);
+		characterChanges(longText);
+
+		expect(document.getElementById("limit-alert").textContent).toMatch(
+			/nearing the character limit/i
+		);
+	});
+
+	test("shows limit exceeded when character count hits 600", () => {
+		const longText = "a".repeat(600);
+		characterChanges(longText);
+
+		expect(document.getElementById("limit-alert").textContent).toMatch(
+			/limit exceeded/i
+		);
+	});
+
+	test("clears warning when under 500 characters", () => {
+		characterChanges("Short message");
+		expect(document.getElementById("limit-alert").textContent).toBe("");
 	});
 });
