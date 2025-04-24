@@ -8,7 +8,7 @@ const {
 } = require("../characterCounter.js");
 
 // textString with spaces included...
-describe("Unit test cases for character count functionality", () => {
+describe("Unit test cases for CHARACTER COUNT functionality", () => {
 	// best case: textString in the input box...
 	test("counts all characters including spaces", () => {
 		let myString = countCharacters("I love JEST");
@@ -38,20 +38,20 @@ describe("Unit test cases for character count functionality", () => {
 	});
 });
 
-describe("Unit test cases for word count functionality", () => {
+describe("Unit test cases for WORD COUNT functionality", () => {
 	// textString with a normal sentence...
 	test("counts words in a sentence", () => {
-		expect(countWords("Hello world")).toBe(2);
+		expect(countWords("I love JEST")).toBe(3);
 	});
 
 	// textString with extra spaces between words...
 	test("handles extra spaces between words", () => {
-		expect(countWords("Hello     world")).toBe(2);
+		expect(countWords("I  love    JEST")).toBe(3);
 	});
 
 	// textString with Leading and Trailing spaces...
 	test("trims spaces at beginning and end", () => {
-		expect(countWords("   Hello world   ")).toBe(2);
+		expect(countWords("   I love JEST   ")).toBe(3);
 	});
 
 	// textString with Empty Strings...
@@ -61,11 +61,11 @@ describe("Unit test cases for word count functionality", () => {
 
 	// textString with tabs and newlines...
 	test("handles tabs and newlines", () => {
-		expect(countWords("Hello\nworld\tagain")).toBe(3);
+		expect(countWords("I\nlove\tjest")).toBe(3);
 	});
 });
 
-describe("unit test cases for sentence count functionality", () => {
+describe("Unit test cases for SENTENCE COUNT functionality", () => {
 	test("counts periods, exclamation marks, and question marks", () => {
 		expect(countSentences("Hi. How are you? I'm fine!")).toBe(3);
 	});
@@ -79,7 +79,7 @@ describe("unit test cases for sentence count functionality", () => {
 	});
 });
 
-describe("unit test cases for reading time functionality", () => {
+describe("Unit test cases for READING TIME functionality", () => {
 	test("shows < 1 minute for short text", () => {
 		expect(estimatedReadingTime(10)).toBe("< 1 minute");
 	});
@@ -93,7 +93,7 @@ describe("unit test cases for reading time functionality", () => {
 	});
 });
 
-describe("unit test cases for letter frequency functionality", () => {
+describe("Unit test cases for LETTER FREQUENCY functionality", () => {
 	test("counts only A-Z letters", () => {
 		expect(getLetterFrequency("AAB!!cc")).toEqual({ A: 2, B: 1, C: 2 });
 	});
@@ -107,7 +107,7 @@ describe("unit test cases for letter frequency functionality", () => {
 	});
 });
 
-describe("unit test cases for word count functionality", () => {
+describe("Unit test cases for SORT FUNCTIONALITY functionality", () => {
 	const freqObj = { A: 5, B: 2, C: 8 };
 
 	test("sorts frequencies in descending order", () => {
@@ -131,14 +131,8 @@ describe("unit test cases for word count functionality", () => {
 });
 
 // ---------------- DOM UPDATES ----------------
-/**
- * @jest-environment jsdom
- */
-
-const { fireEvent } = require("@testing-library/dom");
 
 // Simulate your DOM update function
-// function handleInput(text) {
 function characterChanges(text) {
 	document.getElementById("text-input").value = text;
 
@@ -169,7 +163,7 @@ function characterChanges(text) {
 		limitMessage.textContent = "";
 	}
 }
-describe("DOM Update Simulation...", () => {
+describe("Test cases for DOM Update Simulation", () => {
 	beforeEach(() => {
 		document.body.innerHTML = `
     <textarea id="text-input"></textarea>
@@ -182,14 +176,14 @@ describe("DOM Update Simulation...", () => {
 	});
 
 	test("updates all counters correctly", () => {
-		const sampleText = "Hello world. This is a test!";
+		const sampleText = "I love JEST. This is a test!";
 		characterChanges(sampleText);
 
 		expect(document.getElementById("char-count-value").textContent).toBe(
 			"Characters: 28"
 		);
 		expect(document.getElementById("word-count-value").textContent).toBe(
-			"Words: 6"
+			"Words: 7"
 		);
 		expect(document.getElementById("sentence-count-value").textContent).toBe(
 			"Sentences: 2"
