@@ -103,7 +103,7 @@ header {
 	width: auto;
 }
 
-.themeWrap {
+#themeWrap {
 	background-color: var(--neutral-100);
 	border-radius: var(--radius-8);
 	padding: 11px;
@@ -112,16 +112,16 @@ header {
 	justify-content: center;
 }
 
-body.darkMode .themeWrap {
+body.darkMode #themeWrap {
 	background-color: var(--neutral-700);
 }
 
-.themeWrap:hover {
+#themeWrap:hover {
 	background-color: var(--neutral-200);
 	cursor: pointer;
 }
 
-body.darkMode .themeWrap:hover {
+body.darkMode #themeWrap:hover {
 	background-color: var(--neutral-600);
 }
 
@@ -459,7 +459,7 @@ body.darkMode #view-more-button p {
 		width: full;
 	}
 
-	.themeWrap {
+	#themeWrap {
 		padding: var(--spacing-075);
 	}
 

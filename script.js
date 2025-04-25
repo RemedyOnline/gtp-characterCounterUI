@@ -1,5 +1,6 @@
 // SELECTING INDIVIDUAL HTML ELEMENTS FOR SCRIPTING
-const toggleBtn = document.getElementById("themeToggle");
+const toggleBtnIcon = document.getElementById("themeToggle");
+const toggleBtn = document.getElementById("themeWrap");
 const logo = document.getElementById("logo");
 
 // main input box...
