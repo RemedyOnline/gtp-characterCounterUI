@@ -454,7 +454,7 @@ body.darkMode #view-more-button p {
 		margin-bottom: var(--spacing-400);
 	}
 
-	.logo {
+	#logo {
 		height: 30px;
 		width: full;
 	}
